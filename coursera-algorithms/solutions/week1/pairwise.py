@@ -62,27 +62,17 @@ def stressTess(n,m):
         for x in range(5):
             arr.append(x)
 
+'''
 
-def stressTest():
-    arr = []
-    while True:
-        for x in range(5):
-            random_num = random.randint(2,101)
-            arr.append(random_num)
-
-        result1 = max_pairwise_product(arr)
-        result2 = pairwise1(arr)
-
-        if result1 != result2:
-            print("wrong answer: {} **** {}".format(result1, result2))
-        else:
-            print("############################################# \n Ok")
-
-        return
+StressTest(N,M): 
+while true: n←random integer between 2 and N allocate array A[1...n] 
+    for i from 1 to n: A[i]←random integer between 0 and M print(A[1...n])
+         result1←MaxPairwiseProductNaive(A) 
+        result2←MaxPairwiseProductFast(A) 
+if result1 =result2: print(“OK”) else: print(“Wrong answer: ”, result1, result2) return
 
 
-        
-
+'''
 
 
 
