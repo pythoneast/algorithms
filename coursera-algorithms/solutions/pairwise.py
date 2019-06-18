@@ -4,8 +4,7 @@
 Resources: https://stackoverflow.com/questions/126524/iterate-a-list-with-indexes-in-python
 '''
 
-import random
-
+from random import randint
 '''
 Original pairwise product algorithm
 Slowest run time
@@ -87,8 +86,29 @@ def stressTest():
 
 
 if __name__ == '__main__':
+    '''
     length = input()
     numbers = input().split(' ')
     #answer = pairwise(numbers)
     answer = pairwise1(numbers)
     print(answer)
+    '''
+
+    while True:
+        arr = []
+        for x in range(5):
+            random_num = randint(2,101)
+            arr.append(random_num)
+        print(arr)
+        print('####')
+        result1 = max_pairwise_product(arr)
+        result2 = pairwise1(arr)
+
+        if result1 != result2:
+            break
+            #print("wrong answer: {} **** {}".format(result1, result2))
+        else:
+            continue
+            #print("############################################# \n Ok", result1, result2)
+
+    
