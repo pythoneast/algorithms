@@ -55,12 +55,7 @@ def pairwise(arr):
     return solution
 
 
-def stressTess(n,m):
-    arr = []
-    while true:
-        for x in range(5):
-            arr.append(x)
-
+ 
 
 def stressTest():
     arr = []
@@ -103,12 +98,14 @@ if __name__ == '__main__':
         print('####')
         result1 = max_pairwise_product(arr)
         result2 = pairwise1(arr)
+        print("Result 1 {}, Result2 {}".format(result1,result2))
+        #print(result1)
+        #print(result2)
 
         if result1 != result2:
+            print("wrong answer: {} **** {}".format(result1, result2))
             break
-            #print("wrong answer: {} **** {}".format(result1, result2))
         else:
-            continue
-            #print("############################################# \n Ok", result1, result2)
+            print("############################################# \n Ok", result1, result2)
 
     
