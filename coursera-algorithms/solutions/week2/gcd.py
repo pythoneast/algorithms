@@ -16,6 +16,11 @@ a prime is the remainder when a/b
 '''
 def gcd_fast(a,b):
     factors = []
+    if a == b :
+        return a
+    if a == 1:
+        return 1
+
     while a != 0:
         remainder = b % a
         b = a
@@ -27,19 +32,16 @@ def gcd_fast(a,b):
     return factors[-2]
     
 
-def gcd2(a,b):
-    factors = []
-    while a != 0:
-        remainder = b % a
-        b = a
-        a = remainder
-        #print(a)
-        factors.append(a)
-        #print(factors)
-        
-    return factors[-2]
-
 if __name__ == "__main__":
-    print(gcd_fast(18,35))
-    print(gcd_fast(28851538 ,1183019 ))
+    #print(gcd_fast(18,35))
+    #print(gcd_fast(28851538 ,1183019 ))
+    numbers = input().split(' ')
+    #print(numbers)
+    x = int(numbers[0])
+    y = int(numbers[1])
+    #print(x,y)
+    print(gcd_fast(x,y))
+
+
+    
     
