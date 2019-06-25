@@ -1,5 +1,5 @@
 #python 3
-from gcd import gcd_fast
+#from gcd import gcd_fast
 
 
 def lcm_naive(a, b):
@@ -9,7 +9,28 @@ def lcm_naive(a, b):
 
     return a*b
 
+def gcd_fast(a,b):
+    factors = []
+    if a == b :
+        return a
+    if a == 1:
+        return 1
+
+    while a != 0:
+        remainder = b % a
+        b = a
+        a = remainder
+        #print(a)
+        factors.append(a)
+        #print(factors)
+        
+    return factors[-2]
+
+
+
 def lcm(a,b):
+    if a == 0 or b == 0:
+        return 0
     #Step 1 Find the GCF for two numbers
     gcd = gcd_fast(a,b)
 
@@ -38,22 +59,3 @@ if __name__ == "__main__":
     print(lcm(761457, 614573))
     '''
 
-'''
-Step 1)  Find the GCF for the two numbers.
-
-For 18 and 30, GCF is 6.
-
-Step 2)  Divide that GCF into either number; it doesn’t matter which one you choose, so choose the one that’s easier to divide.
-
-Choose 18. Divide 18 by 6. Answer = 3.
-
-Step 3)  Take that answer and multiply it by the other number.
-
-3 x 30  =  90
-
-Step 4)  Celebrate …
-
-… because the answer you just got is the LCM. It’s that easy.
-
-Note:  if you want to check that this technique does work, divide by the other number, and see if you don’t get the same answer.
-'''
