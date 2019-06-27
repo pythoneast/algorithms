@@ -13,24 +13,24 @@ def get_optimal_value(capacity,values, weights):
     value_knap = 0
 
     #while the bag is not full - when capacity is 0 
+    while capacity >0:
+        #calculate the value of each item
+        for i in range(len(weights)):
+            value = values[i]/weights[i]
+            val_item.append([value,weights[i]])
 
-    #calculate the value of each item
-    for i in range(len(weights)):
-        value = values[i]/weights[i]
-        val_item.append([value,weights[i]])
+        #determine which value is bigger
+            if value > max_index:
+                max_index = i
 
-    #determine which value is bigger
-        if value > max_index:
-            max_index = i
-
-    #print(value_knap)
-    if capacity > 0:
+        #print(value_knap)
+        #if capacity > 0:
         value_knap += val_item[max_index][0] * val_item[max_index][1]
         capacity -= val_item[max_index][1]
         val_item.pop(max_index)
-    print("value of knapsack",value_knap)
-    print("how much capcity left", capacity)
-    print(val_item)
+        print("value of knapsack",value_knap)
+        print("how much capcity left", capacity)
+        print(val_item)
 
     return None
 
