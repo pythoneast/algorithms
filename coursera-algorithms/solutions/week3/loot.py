@@ -12,7 +12,7 @@ def get_optimal_value(capacity,values, weights):
     #the total value of the knapsack
     value_knap = 0
 
-    #while the bag is not full - when capacity is 0 
+    #while the bag is not full - when capacity is greater 0 
     while capacity >0:
         #calculate the value of each item
         for i in range(len(weights)):
@@ -23,11 +23,17 @@ def get_optimal_value(capacity,values, weights):
             if value > max_index:
                 max_index = i
 
-        #print(value_knap)
-        #if capacity > 0:
-        value_knap += val_item[max_index][0] * val_item[max_index][1]
-        capacity -= val_item[max_index][1]
-        val_item.pop(max_index)
+
+        if val_item[max_index][1] >capacity:
+            value_knap += val_item[max_index][0] * capacity
+            capacity -= val_item[max_index][1]
+            print(value_knap)
+
+        else:
+            value_knap += val_item[max_index][0] * val_item[max_index][1]
+            capacity -= val_item[max_index][1]
+            val_item.pop(max_index)
+            
         print("value of knapsack",value_knap)
         print("how much capcity left", capacity)
         print(val_item)
@@ -35,33 +41,9 @@ def get_optimal_value(capacity,values, weights):
     return None
 
 
-
-def get_optimal_value2(n,capacity, weights, values):
-    value = 0
-    if capacity == 0:
-        return 0
-    for i in range(n):
-        max_index = select_max_index(values, weights)
-        if max_index >= 0:
-            available_weights = min(capacity, weights[max_index])
-            value = value + available_weights * values[max_index]/weights[max_index]
-            weights[max_index] = weights[max_index] - available_weights
-            capacity = capacity - available_weights
-
-    return value
-
-def select_max_index(values, weights):
-    index = -1
-    max = 0
-    for i in range(n):
-        if weights[i] > 0 and (values[i] / weights[i]) > max:
-            max = values[i]/weights[i]
-            index = i
-    return index
-
-
 if __name__ == "__main__":
     print(get_optimal_value(50,[60,100,120],[20,50,30]))
+    print(get_optimal_value(10,[500],[30]))
     #print(500/30)
     '''
     n, capacity = list(map(int,input().split(' ')))
