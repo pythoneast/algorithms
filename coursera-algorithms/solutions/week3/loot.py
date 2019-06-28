@@ -22,31 +22,53 @@ def get_optimal_value(capacity,values, weights):
         #determine which value is bigger
             if value > max_index:
                 max_index = i
+        
 
-
-        if val_item[max_index][1] >capacity:
+        #if the weight of the item cost more than capcity of the knapsack
+        if val_item[max_index][1] > capacity:
             value_knap += val_item[max_index][0] * capacity
             capacity -= val_item[max_index][1]
-            print(value_knap)
+            #print(value_knap)
 
         else:
             value_knap += val_item[max_index][0] * val_item[max_index][1]
             capacity -= val_item[max_index][1]
             val_item.pop(max_index)
-            
-        print("value of knapsack",value_knap)
-        print("how much capcity left", capacity)
-        print(val_item)
 
-    return None
+        #print("value of knapsack",value_knap)
+        #print("how much capcity left", capacity)
+        #print(val_item)
+
+    return value_knap
+
 
 
 if __name__ == "__main__":
-    print(get_optimal_value(50,[60,100,120],[20,50,30]))
-    print(get_optimal_value(10,[500],[30]))
+    n, cap = list(map(int,input().split(' ')))
+    v = []
+    w = []
+    '''
+    3 50
+     60 20 
+     100 50 
+     120 30
+    '''
+    while n > 0:
+
+        #get_optimal_value(n,5,20)
+        max_input = list(map(int,input().split(' ')))
+        v.append(max_input[0])
+        w.append(max_input[1])
+
+        n -=1
+        #print(v)
+        #print(n)
+    print(get_optimal_value(cap,v,w))
+
+    #print(get_optimal_value(50,[60,100,120],[20,50,30]))
+    #print(get_optimal_value(10,[500],[30]))
     #print(500/30)
     '''
-    n, capacity = list(map(int,input().split(' ')))
     print(n)
     while n > 0:
 
