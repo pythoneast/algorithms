@@ -57,7 +57,18 @@ def get_optimal_value (capacity, values, weights):
   
 
 if __name__== "__main__":
-    print (get_optimal_value (50,[60, 100, 120],[20, 50, 30]))
+    n, cap = list(map(int,input().split(' ')))
+    v = []
+    w = []
+    while n > 0:
+        #get_optimal_value(n,5,20)
+        max_input = list(map(int,input().split(' ')))
+        v.append(max_input[0])
+        w.append(max_input[1])
+
+        n -=1
+    print(get_optimal_value(cap,v,w))
+    #print (get_optimal_value (50,[60, 100, 120],[20, 50, 30]))
     #print(get_optimal_value(1000,[500],[30]))
     #print(get_optimal_value(10,[500],[30]))
     #print(500/30)
