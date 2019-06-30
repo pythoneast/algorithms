@@ -1,5 +1,5 @@
 
-#https://codereview.stackexchange.com/questions/150677/knapsack-greedy-algorithm-in-python
+#python 3
 import sys 
 def get_optimal_value (capacity, values, weights):
     
