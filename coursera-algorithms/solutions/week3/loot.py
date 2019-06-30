@@ -1,6 +1,6 @@
 
-#python 3
-import sys 
+#python3
+
 def get_optimal_value (capacity, values, weights):
     
     #values for each item v/w by index
