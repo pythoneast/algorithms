@@ -1,25 +1,14 @@
 
-'''
-
-                            Online Python Compiler.
-                Code, Compile, Run and Debug python program online.
-Write your code in this editor and press "Run" button to execute it.
-'''
 #https://codereview.stackexchange.com/questions/150677/knapsack-greedy-algorithm-in-python
 import sys 
 def get_optimal_value (capacity, values, weights):
-    n = len (weights)
     
     #values for each item v/w by index
     val_item =[]
 
-    #greatest value
-    max_value = 0
-    #the position of the item with the most value
-    max_index = 0
-    
     #the total value of the knapsack
     value_knap = 0
+
     #while the bag is not full - when capacity is greater 0
     #calculate the value of each item
     #find the value of each weight
@@ -33,11 +22,15 @@ def get_optimal_value (capacity, values, weights):
     
     #while there are items available go through the list of loot items >:)
     while len(val_item) > 0:
+
+        if capacity == 0:
+            break
         
         #if the weight is more than the capacity of the loot bag
         #return a fraction of the value of the item
         
         if capacity<val_item[0][1]:
+            #print("capacity, values", capacity, values)
             capacity = capacity / val_item[0][1]
             #print(val_item)
             value_knap = capacity * values[0] 
@@ -45,15 +38,14 @@ def get_optimal_value (capacity, values, weights):
             
         #if the the bag can hold the the entire weight of the largest value item "just put it the bag...."   
         elif capacity >= val_item[0][1]:
+            #print('val*weight', val_item[0][0]*val_item[0][1])
             #update the weight of the bag
             capacity = capacity - val_item[0][1]
             
             #value * weight
             #print(val_item[0][0]*val_item[0][1])
             value_knap = value_knap + (val_item[0][0]*val_item[0][1])
-            print(value_knap)
             val_item.pop(0)
-    print(value_knap)
     
             
             
