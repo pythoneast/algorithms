@@ -1,34 +1,11 @@
 # python3
 import sys
 
-#python3
-def compute_min_refills(distance, tank, stops):
-    # write your code heregi
-    n = len(stops)
-    first_stop = 0
-    max_index = 0
-
-
-  
-
-
-    for i in range(n):
-        #find the maximum first stop
-        if tank - stops[i] > 0:
-            max_index = i
-        #can i reach my next gas station
-        while tank  - stops[i ] > 0:
-            print('hello')
-            #can I reach my next destination?
-
-
-        print(stops[max_index])
-
-
 max_stops = 4
 tank = 400
 stations =[200,375,500,700]
 distance = []
+
 
 for station in stations:
     x = 400 - station
@@ -55,6 +32,10 @@ for i, v in enumerate(distance):
 print(stations[least], "final")
 
 print(miles, "miles")
+
+def compute_min_refills(distance, tank, stops):
+    # write your code heregi
+    pass
 
 '''
 y = 400 + 375
