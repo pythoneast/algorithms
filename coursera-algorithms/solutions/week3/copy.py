@@ -1,53 +1,62 @@
 #python3
- 
-tank = 3
+
+'''
+
 n = 4 
 distance = [1, 2 ,5, 9]
-'''
+tank = 3
+
 distance = [200,375,550,750]
 tank = 400
 stops = 0
 d_travel = 0
 n =4
 '''
-stops = 0
 
-while n > 0:
-    
-    smallest = tank - distance[0]
+def compute_min_refills(distance, tank, stops):
 
-    for i,v in enumerate(distance):
-        
-        miles = tank - distance[i]
-    
-        if miles > 0 and smallest > miles:
-            smallest = miles
-            d_travel = distance[i] + tank
-            stops += 1
-            print(smallest)
-        
-    distance = distance[i-1:]
-    smallest = d_travel - distance[0]
-    for i,v in enumerate(distance):
-        #print(d_travel - distance[i])
-        if d_travel - distance[i] < 0:
-            print(-1)
-            break
-        
-        elif d_travel - distance[i] < tank and smallest > d_travel - distance[i]:
-            print(distance[i])
-            stops += 1
+    num_stops = 0
+    n = len(stops)
+    while n > 0:
+        smallest = tank - stops[0]
+
+        for i,v in enumerate(stops):
             
-    print(distance)
-    distance = distance[i:]
-    print(distance)
-    if len(distance) == 1:
-        print(stops)
-        break
+            miles = tank - stops[i]
+        
+            if miles > 0 and smallest > miles:
+                smallest = miles
+                d_travel = stops[i] + tank
+                num_stops += 1
+                print(smallest)
+        
+        stops = stops[i-1:]
+        smallest = d_travel - stops[0]
+        for i,v in enumerate(stops):
+            #print(d_travel - stops[i])
+            if d_travel - stops[i] < 0:
+                print(-1)
+                break
+            
+            elif d_travel - stops[i] < tank and smallest > d_travel - stops[i]:
+                #print(stops[i])
+                num_stops += 1
+            
+        #print(stops)
+        stops = stops[i:]
+        #print(stops)
+        if len(stops) == 1:
+            print(num_stops)
+            break
 
   
-    n -= 1
+        n -= 1
    
+if __name__ == '__main__':
+    print(compute_min_refills(950,400,[200,375,550,750]))
+    print(compute_min_refills(10,3,[1,2,5,9]))
+    #d, m, _, *stops = map(int, sys.stdin.read().split())
+    #print(compute_min_refills(d, m, stops))
 
 
 

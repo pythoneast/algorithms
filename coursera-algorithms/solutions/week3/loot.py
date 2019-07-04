@@ -1,5 +1,4 @@
-
-#python3
+#python 3
 
 def get_optimal_value (capacity, values, weights):
     
