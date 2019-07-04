@@ -1,17 +1,5 @@
-#python3
+#python 3
 
-'''
-
-n = 4 
-distance = [1, 2 ,5, 9]
-tank = 3
-
-distance = [200,375,550,750]
-tank = 400
-stops = 0
-d_travel = 0
-n =4
-'''
 
 def compute_min_refills(distance, tank, stops):
 
