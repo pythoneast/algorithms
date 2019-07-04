@@ -11,16 +11,8 @@ def calc_fib(n):
 
     return calc_fib(n - 1) + calc_fib(n - 2)
 
-#n = int(input())
-#print(calc_fib(n))
-'''
-0 + 1 = 1
-1 + 1 = 2
-1 + 2 = 3
-2 + 3 = 5
-3 + 5 = 8
 
-'''
+
 
 def faster_fib(n):
     arr = [0,1]
