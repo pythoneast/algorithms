@@ -28,14 +28,13 @@ def compute_min_refills(distance, tank, stops):
                 smallest = miles
                 d_travel = stops[i] + tank
                 num_stops += 1
-                print(smallest)
         
         stops = stops[i-1:]
         smallest = d_travel - stops[0]
         for i,v in enumerate(stops):
             #print(d_travel - stops[i])
             if d_travel - stops[i] < 0:
-                print(-1)
+                return -1
                 break
             
             elif d_travel - stops[i] < tank and smallest > d_travel - stops[i]:
@@ -46,7 +45,8 @@ def compute_min_refills(distance, tank, stops):
         stops = stops[i:]
         #print(stops)
         if len(stops) == 1:
-            print(num_stops)
+            #print(num_stops)
+            return num_stops
             break
 
   
@@ -57,6 +57,4 @@ if __name__ == '__main__':
     print(compute_min_refills(10,3,[1,2,5,9]))
     #d, m, _, *stops = map(int, sys.stdin.read().split())
     #print(compute_min_refills(d, m, stops))
-
-
 
