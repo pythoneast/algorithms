@@ -1,18 +1,20 @@
 #python 3
 
+#this code does not account for duplicate items
+
 def get_optimal_value (capacity, values, weights):
     
     #values for each item v/w by index
     val_item =[]
 
     #the total value of the knapsack
-    value_knap = 0
+    value_knap = 0.
 
     #while the bag is not full - when capacity is greater 0
     #calculate the value of each item
     #find the value of each weight
     for i in range (len (weights)):
-        ratio = values[i] / weights[i] 
+        ratio = round(values[i] / weights[i],4 )
         val_item.append([ratio, weights[i]])
         
     #sort from largest to smallest    
@@ -20,11 +22,8 @@ def get_optimal_value (capacity, values, weights):
     #print(val_item)
     
     #while there are items available go through the list of loot items >:)
-    while len(val_item) > 0:
+    while len(val_item) > 0 and capacity >0:
 
-        if capacity == 0:
-            break
-        
         #if the weight is more than the capacity of the loot bag
         #return a fraction of the value of the item
         
@@ -56,6 +55,7 @@ def get_optimal_value (capacity, values, weights):
   
 
 if __name__== "__main__":
+    '''
     n, cap = list(map(int,input().split(' ')))
     v = []
     w = []
@@ -67,7 +67,9 @@ if __name__== "__main__":
 
         n -=1
     print(get_optimal_value(cap,v,w))
-    #print (get_optimal_value (50,[60, 100, 120],[20, 50, 30]))
-    #print(get_optimal_value(1000,[500],[30]))
+    '''
+
+    print (get_optimal_value (50,[60, 100, 120],[20, 50, 30]))
+    print(get_optimal_value(1000,[500],[30]))
     #print(get_optimal_value(10,[500],[30]))
     #print(500/30)
