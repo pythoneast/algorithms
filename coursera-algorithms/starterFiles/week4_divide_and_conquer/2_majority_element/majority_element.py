@@ -1,13 +1,28 @@
 # Uses python3
 import sys
 
-def get_majority_element(a, left, right):
+def majority(a, arr):
+    if len(arr) == 0:
+        return None
+
+    if len(arr) == 1:
+        return a[0]
+
+    half = len(arr) // 2
+    left = arr[0:half]
+    right = arr[half:]
+
     if left == right:
-        return -1
-    if left + 1 == right:
-        return a[left]
-    #write your code here
-    return -1
+        return left
+
+    if arr.count(left) > half:
+        return left
+    
+    if arr.count(right) > half:
+        return right
+
+    
+    
 
 if __name__ == '__main__':
     input = sys.stdin.read()
